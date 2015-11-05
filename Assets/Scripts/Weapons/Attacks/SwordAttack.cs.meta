@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 69fcb5d23b468e744bee87476eea5574
+timeCreated: 1433165066
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - swordHitBox: {fileID: 137018, guid: 9d839fa6b635ad14c936726be1e4cb22, type: 2}
+  - clone: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
