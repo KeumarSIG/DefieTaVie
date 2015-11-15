@@ -28,7 +28,7 @@ public class SwordAttack : MonoBehaviour
 
 
     void Start()
-    {
+    { 
         bread = false;
         breadAttacks = 0;
         breadCanAttack = false;
@@ -66,7 +66,7 @@ public class SwordAttack : MonoBehaviour
         { 
             if (Input.GetKeyDown(KeyCode.Space) && !clone) // Attaque sans mouvement
             {
-                Attack(this.GetComponent<Character>().lastMovement / distAttack);
+                Attack(hero.lastMovement / distAttack);
 
                 breadAttacks++;
 
@@ -80,7 +80,7 @@ public class SwordAttack : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.Space) && !clone) // Char retrouve sa vitesse quand touche attaque relevée
             {
-                GetComponent<Character>().speed = GetComponent<Character>().originalSpeed;
+                hero.speed = hero.originalSpeed;
             }
         }
     }
@@ -91,12 +91,12 @@ public class SwordAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !clone) // Attaque sans mouvement
         {
-            Attack(this.GetComponent<Character>().lastMovement / distAttack);
+            Attack(hero.lastMovement / distAttack);
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && !clone) // Char retrouve sa vitesse quand touche attaque relevée
         {
-            GetComponent<Character>().speed = GetComponent<Character>().originalSpeed;
+            hero.speed = hero.originalSpeed;
         }
     }
 

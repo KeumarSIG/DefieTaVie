@@ -11,7 +11,8 @@ public class HeroDamage : MonoBehaviour
         {
             var otherHealth = other.GetComponent<Enemy>().health;
             other.GetComponent<Enemy>().health -= damage;
-            print("HP= " + otherHealth);
+            //print("HP= " + otherHealth);
+            print(damage + " dgts");
 			if (this.gameObject.tag == "Arrow" || this.gameObject.tag == "Bread") Destroy (this.gameObject, 0.01f);
             if (otherHealth <= 0) Destroy(other.gameObject);
         }

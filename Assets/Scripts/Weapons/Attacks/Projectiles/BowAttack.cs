@@ -20,7 +20,7 @@ public class BowAttack : MonoBehaviour
     public float charge;
     private int stack;
 
-	public int arrowDamage;
+	public int bonusArrowDamage;
 
     Character hero;                 // Script hero
 
@@ -29,8 +29,9 @@ public class BowAttack : MonoBehaviour
     // Init bow thing
     void Start()
     {
+        hero = GetComponent<Character>();
         OriginalArrowSpeed = arrowSpeed;
-        lastMovement = new Vector2(0, -1);
+        lastMovement = hero.movement;
         hero = GetComponent<Character>();
         cooldown = 0;
     }
@@ -56,7 +57,7 @@ public class BowAttack : MonoBehaviour
                     {
                         charge = 0;
                         arrowSpeed += 0.25f;
-						arrowDamage += 2;
+						bonusArrowDamage += 2;
                         stack += 1;
                     }
                 }
@@ -84,7 +85,7 @@ public class BowAttack : MonoBehaviour
     {
         this.GetComponent<Character>().speed = 0;
 		clone = Instantiate(objectBeingShot, (hero.rb.position + dir), this.transform.rotation) as GameObject;
-		clone.GetComponent<Arrow>().bonusDamage = this.arrowDamage;
+		clone.GetComponent<HeroDamage>().damage += this.bonusArrowDamage;
 
         // Arrow's direction... I couldn't think of something shorter/easier/smarter
         if (lastMovement == new Vector2(1, 0)) clone.transform.eulerAngles = new Vector3(0.0f, 0.0f, -90f); // RIGHT
@@ -98,7 +99,7 @@ public class BowAttack : MonoBehaviour
 
         // Arrow's movement
         clone.GetComponent<Rigidbody2D>().velocity += lastMovement * arrowSpeed;
-		arrowDamage = 0;
+		bonusArrowDamage = 0;
         arrowSpeed = OriginalArrowSpeed;
 
         // Get char speed back

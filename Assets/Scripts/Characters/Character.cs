@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
 
     [HideInInspector] public bool bumped = false;
     public Vector2 movement;
+    [HideInInspector]
     public Rigidbody2D rb;
     public Vector2 lastMovement;
 
@@ -23,7 +24,8 @@ public class Character : MonoBehaviour
     // Init char variables
 	void Start () 
     {
-		fishingRope = false;
+        lastMovement = new Vector2(0, -1);
+        fishingRope = false;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         originalSpeed = speed;

@@ -4,14 +4,15 @@ using System.Collections;
 public class Arrow : MonoBehaviour
 {
     public float timeBeforeDeath;
-	public int bonusDamage;
     Vector2 arrowSpeed;
+    public GameObject hero;
+    [HideInInspector] public int bonusDmg;
 
     void Awake()
     {
-		print ("Bonus: " + bonusDamage);
-		this.GetComponent<HeroDamage>().damage += bonusDamage;
-		Destroy(this.gameObject, timeBeforeDeath);
+        bonusDmg = hero.GetComponent<BowAttack>().bonusArrowDamage;
+		this.GetComponent<HeroDamage>().damage += bonusDmg;
+        Destroy(this.gameObject, timeBeforeDeath);
     }
 
     void OnTriggerEnter2D(Collider2D other)
