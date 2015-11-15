@@ -7,7 +7,7 @@ public class FishingRod : MonoBehaviour
     public float cooldownTime;
 
     public GameObject hook;         // The hook
-    private GameObject clone;        // hook clone
+    private GameObject clone;       // hook clone
 
     public float distAttack;        // Little div necessary to adjust attack distance → should be a multiplication
     private Vector2 lastMovement;   // last char direction

@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{63012FFA-162E-35EF-63BD-61A4361655A2}</ProjectGuid>
+	<ProjectGuid>{91C547AB-386C-D186-78C2-440F2D25386F}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,13 +47,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
+     <Compile Include="Assets\Retro Pixel\Editor\RetroPixelEditor.cs" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel5.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel8.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel4.shader" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel6.shader" />
      <None Include="Assets\Fantasy Environment and Animated Characters (Pixel Art) [free add-on]\Graphical\Characters\Characters Sizes to Slice.txt" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel3.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel7.shader" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel2.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\Retro Pixel\Readme.txt" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Fantasy Environment and Animated Characters (Pixel Art) [free add-on]\Readme.txt" />
  <Reference Include="UnityEngine.UI">
@@ -72,31 +81,31 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="DemiLib">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
  </Reference>
  <Reference Include="DemiEditor">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DemiLib/Editor/DemiEditor.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DemiLib/Editor/DemiEditor.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenPro">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenProEditor">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -140,7 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{52FDA2FC-16B0-6A3A-6AB1-E727ACB8805D}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
+      <Project>{6F09261B-222E-5D00-B9E9-43D7D2E36073}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

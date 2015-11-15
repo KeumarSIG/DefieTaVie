@@ -3,60 +3,65 @@ using System.Collections;
 
 public class BreadAttack : MonoBehaviour 
 {
-	public GameObject bread;
-	public int numOfBread; // Number of miettes de pain created when the character breaks his baguette
+	public GameObject m_bread;
+    public GameObject breadTarget;
 
+    public int numOfBread; // Number of miettes de pain created when the character breaks his baguette
 	public int breadToThrow; // Number of miettes de pain the character has
 
-	Character hero;
-	//Vector2 lastMovement;
-	GameObject clone;
+    int minPiecesToThrow;
 
-	void Start()
-	{
-		hero = GetComponent<Character>();
-	}
+    SwordAttack swordAttack;
+
+    void Start ()
+    {
+        swordAttack = GetComponent<SwordAttack>();
+        minPiecesToThrow = 5;
+    } 
 
 	void Update () 
 	{
-		//lastMovement = hero.movement;
-
-		if (Input.GetKeyDown(KeyCode.E)) 
-		{
-			for (var i = 0 ; i < numOfBread ; i++)
-			{
-				clone = Instantiate(bread, this.transform.position, Quaternion.identity) as GameObject;
-				clone.GetComponent<bread>().gettingThrown = false;
-			}
-		}
-
 		if (breadToThrow > 0) // throw miettes de pain
 		{
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				breadToThrow--;
-				clone = Instantiate(bread, this.transform.position, Quaternion.identity) as GameObject;
-				clone.GetComponent<bread>().moving = false;
+                minPiecesToThrow--;
 
+				GameObject clone = Instantiate(m_bread, this.transform.position, Quaternion.identity) as GameObject;
+				clone.GetComponent<Bread>().moving = false;
 
-				GameObject target = GameObject.FindGameObjectWithTag("Enemy");
-				clone.transform.LookAt(target.transform.position);
-				clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.forward * 200);
+                clone.transform.LookAt(breadTarget.transform.position);
+                clone.GetComponent<Bread>().gettingThrown = true;
+                clone.GetComponent<Rigidbody2D>().AddForce(clone.transform.forward * 500);
+
+                if (minPiecesToThrow <= 0)
+                {
+                    swordAttack.breadCanAttack = true;
+                    minPiecesToThrow = 5;
+                }
 			}
 		}
-		
 	}
 
 	void OnTriggerEnter2D(Collider2D other) // Get the "miettes de pain" (with a French accent)
 	{
 		if (other.gameObject.tag == "Bread")
 		{
-			if (other.GetComponent<bread>().moving == false)
+			if (other.GetComponent<Bread>().moving == false)
 			{
 				breadToThrow += 1;
 				Destroy(other.gameObject, 0.01f);
 			}
 		}
 	}
+
+    public void createBreadPieces()
+    {
+        for (var i = 0; i < numOfBread; i++)
+        {
+            GameObject clone = Instantiate(m_bread, this.transform.position, Quaternion.identity) as GameObject;
+            clone.GetComponent<Bread>().gettingThrown = false;
+        }
+    }
 }
-;

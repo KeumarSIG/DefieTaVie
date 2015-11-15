@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class bread : MonoBehaviour 
+public class Bread : MonoBehaviour 
 {
 	public float breadSpd;
 	public float timeBeforeStop;
@@ -14,7 +14,6 @@ public class bread : MonoBehaviour
 	private float randomSign;
 
 	public GameObject target;
-	private Vector3 targetPos;
 
 	private Vector2 rndDir;
 	public Rigidbody2D rb;
@@ -22,7 +21,10 @@ public class bread : MonoBehaviour
 	[HideInInspector] public bool moving;
 	
 	void Awake () 
-	{		
+	{
+        gettingThrown = false;
+
+        // Throws the bread pieces in random directions
 		randomSign = Random.value;
 		if (randomSign <= 0.5) randomSign = -1;
 		else randomSign = 1;
@@ -34,8 +36,7 @@ public class bread : MonoBehaviour
 
 		rotation = Random.Range (minRotation, maxRotation) * randomSign;
 
-		StartCoroutine(StopBread());
-
+		StartCoroutine(StopBread()); // Prevents the bread from moving forever
 	}
 
 	void FixedUpdate () 
@@ -46,7 +47,10 @@ public class bread : MonoBehaviour
 			this.transform.Rotate(new Vector3(0, 0, rotation));
 		}
 
-		if (this.transform.eulerAngles.y != 0 || this.transform.eulerAngles.x != 0) this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
+        if (transform.eulerAngles.y != 0 || transform.eulerAngles.x != 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z); // Sans ça, cela ne marche plus mais... WTF cette ligne de code ?
+        }
 	}
 
 	IEnumerator StopBread()
@@ -58,21 +62,27 @@ public class bread : MonoBehaviour
 		gettingThrown = false;
 	}
 
+    //
+    // Je n'arrive pas à faire marcher cette merde.
+    //
+    /*
 	void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Enemy")
 		{
-			print ("collision");
-			Destroy(this.gameObject, 0.01f);
+			rb.velocity = new Vector2(0, 0);
+			print ("Collision");
+			Destroy(this.gameObject, 0.1f);
 		}
 	}
-
+    */
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Enemy")
 		{
-			print ("collision");
-			Destroy(this.gameObject, 0.01f);
+			rb.velocity = new Vector2(0, 0);
+			print ("Trigger");
+			Destroy(this.gameObject, 0.1f);
 		}
 	}
 }

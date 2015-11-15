@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{52FDA2FC-16B0-6A3A-6AB1-E727ACB8805D}</ProjectGuid>
+	<ProjectGuid>{6F09261B-222E-5D00-B9E9-43D7D2E36073}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\Retro Pixel\Scripts\RetroPixel.cs" />
      <Compile Include="Assets\Scripts\Boss\BossAttack.cs" />
      <Compile Include="Assets\Scripts\Boss\BulletHell.cs" />
      <Compile Include="Assets\Scripts\Boss\DestroyAfterTime.cs" />
@@ -69,13 +70,21 @@
      <Compile Include="Assets\Scripts\Weapons\Attacks\Projectiles\Hook.cs" />
      <Compile Include="Assets\Scripts\Weapons\Attacks\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Weapons\HeroDamage.cs" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel5.shader" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel8.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel4.shader" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel6.shader" />
      <None Include="Assets\Fantasy Environment and Animated Characters (Pixel Art) [free add-on]\Graphical\Characters\Characters Sizes to Slice.txt" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel3.shader" />
      <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel7.shader" />
+     <None Include="Assets\Retro Pixel\Resources\Shaders\RetroPixel2.shader" />
      <None Include="Assets\Demigiant\DOTween\readme.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\Retro Pixel\Readme.txt" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Fantasy Environment and Animated Characters (Pixel Art) [free add-on]\Readme.txt" />
  <Reference Include="UnityEngine.UI">
@@ -88,22 +97,22 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="DemiLib">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenPro">
- <HintPath>C:/Users/m.bonte/Documents/Marc/DTV - IA + AVATAR/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ <HintPath>C:/Users/m.bonte/Documents/GitHub/DefieTaVie/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

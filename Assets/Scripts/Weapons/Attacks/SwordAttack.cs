@@ -11,16 +11,85 @@ public class SwordAttack : MonoBehaviour
     public float distAttack;        // Little div necessary to adjust attack distance
     //private Vector2 lastMovement;
 
+    public bool bread; // the bread is activated
+
+    [HideInInspector]
+    public bool breadCanAttack; // if the the baguette has not been destroyed, then it's true
+
+    int breadAttacks; // current number of hits done with the bread
+    public int maxHitWithBread; // maximum number of hits before the bread breaks
+
+    [HideInInspector]
+    public bool createBreadPieces; 
+
     Character hero;
+    BreadAttack heroBread;
+
+
 
     void Start()
     {
+        bread = false;
+        breadAttacks = 0;
+        breadCanAttack = false;
+
         hero = GetComponent<Character>();
+        heroBread = GetComponent<BreadAttack>();
+
+        if (heroBread.isActiveAndEnabled == true)
+        {
+            breadCanAttack = true;
+            bread = true; // if baguette = true, baguette = true... 
+        }
     }
+
+
 
 	void Update()
 	{
-        if (Input.GetKeyDown(KeyCode.Space) && !clone ) // Attaque sans mouvement
+        if (bread == true)
+        {
+            AttackButtonWithBread();
+        }
+
+        else
+        {
+            AttackButtonWithoutBread();
+        }
+	}
+
+
+
+    void AttackButtonWithBread()
+    {
+        if (breadCanAttack == true)
+        { 
+            if (Input.GetKeyDown(KeyCode.Space) && !clone) // Attaque sans mouvement
+            {
+                Attack(this.GetComponent<Character>().lastMovement / distAttack);
+
+                breadAttacks++;
+
+                if (breadAttacks >= maxHitWithBread)
+                {
+                    breadCanAttack = false; // You have to throw the bread now cause baguette broke
+                    heroBread.createBreadPieces();
+                    breadAttacks = 0;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space) && !clone) // Char retrouve sa vitesse quand touche attaque relevée
+            {
+                GetComponent<Character>().speed = GetComponent<Character>().originalSpeed;
+            }
+        }
+    }
+
+
+
+    void AttackButtonWithoutBread()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !clone) // Attaque sans mouvement
         {
             Attack(this.GetComponent<Character>().lastMovement / distAttack);
         }
@@ -29,7 +98,8 @@ public class SwordAttack : MonoBehaviour
         {
             GetComponent<Character>().speed = GetComponent<Character>().originalSpeed;
         }
-	}
+    }
+
 
     void Attack(Vector2 dir)
     {
@@ -38,6 +108,8 @@ public class SwordAttack : MonoBehaviour
         Destroy(clone, durationOfHitbox);
         StartCoroutine(GetSpeedBack());
     }
+
+
 
     IEnumerator GetSpeedBack()
     {

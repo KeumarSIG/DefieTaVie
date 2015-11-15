@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: bdd8148f55a7ba84aafb87e3286bfe0b
-timeCreated: 1444472546
-licenseType: Free
+timeCreated: 1447599458
+licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_bread: {instanceID: 0}
+  - breadTarget: {fileID: 118310, guid: 996f6e27648a2a34698f5f994d79df31, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
